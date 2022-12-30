@@ -2,7 +2,9 @@
 ***
 User can input the full name and domain nam eof the company. By clicking generate the mail address will be generated and displayed
 
-Name format -> Name shouldnt contain special characters. Soaces are allowed.
+Name format -> Name shouldnt contain special characters. Spaces are allowed.
+
+
 Domain fromat -> Shouldnt contain special chars. Also 'www.', 'http://' prefixes are not allowed.
 
 ---
