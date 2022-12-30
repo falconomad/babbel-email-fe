@@ -4,7 +4,7 @@ import AppCard from './Card'
 
 
 describe('AppCard', () => {
-  it('should render Appcard', async () => {
+  it('should render Appcard', () => {
     render(
       <AppCard
       />,
