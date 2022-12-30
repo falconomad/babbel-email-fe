@@ -13,3 +13,8 @@ export const FORM_LABELS = {
 };
 
 export const AppTitle = "Email-Id Generator";
+
+export const ERROR_MESSAGES = {
+  title: "Request failed",
+  description: "API request failed. Please check your connection",
+};

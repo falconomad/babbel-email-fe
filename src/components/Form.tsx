@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Form, Input, Typography, Row } from 'antd';
+import { Button, Form, Input, Typography, Row, notification } from 'antd';
 import emailService from '../services/email/email.service';
-import { GENERATE, FORM_MESSAGES, FORM_LABELS } from '../utils/contants';
-import { domainRegex, nameOnlySpacesRegex, nameRegex } from '../utils/regex';
+import { GENERATE, FORM_MESSAGES, FORM_LABELS, ERROR_MESSAGES } from '../utils/contants';
+import { DomainValidations, NameValidations } from '../utils/validators';
 
 const { Text } = Typography;
 
@@ -10,6 +10,8 @@ const formItemLayout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 15 },
 };
+type NotificationType = 'success' | 'info' | 'warning' | 'error';
+
 
 const EmailForm: React.FC = () => {
     const [form] = Form.useForm();
@@ -21,6 +23,15 @@ const EmailForm: React.FC = () => {
         setEmail(null)
     }
 
+    const [api, contextHolder] = notification.useNotification();
+
+    const openNotificationWithIcon = (type: NotificationType, data: any) => {
+        api[type]({
+            message: data.message,
+            description: data.description,
+        });
+    };
+
     const onClickGenerate = async () => {
         setIsLoading(true)
         try {
@@ -30,7 +41,15 @@ const EmailForm: React.FC = () => {
                 fullname: values.fullname.trim(),
                 domain: values.domain.trim()
             })
-            setEmail(email)
+            if (email) {
+                setEmail(email)
+            } else {
+                openNotificationWithIcon('error', {
+                    message: ERROR_MESSAGES.title,
+                    description: ERROR_MESSAGES.description
+                })
+            }
+
         } catch (errorInfo) {
             console.log('Failed:', errorInfo);
             setEmail(null)
@@ -40,36 +59,12 @@ const EmailForm: React.FC = () => {
 
     return (
         <Form form={form} name="dynamic_rule">
+            {contextHolder}
             <Form.Item
                 {...formItemLayout}
                 name="fullname"
                 label={FORM_LABELS.NAME}
-                rules={[
-                    {
-                        required: true,
-                        message: FORM_MESSAGES.NAME,
-                    },
-                    {
-                        message: FORM_MESSAGES.INVALID_NAME,
-                        validator: (_, value) => {
-                            if (nameRegex.test(value)) {
-                                return Promise.resolve();
-                            } else {
-                                return Promise.reject('Error');
-                            }
-                        }
-                    },
-                    {
-                        message: FORM_MESSAGES.INVALID_NAME,
-                        validator: (_, value) => {
-                            if (!nameOnlySpacesRegex.test(value)) {
-                                return Promise.resolve();
-                            } else {
-                                return Promise.reject('Error');
-                            }
-                        }
-                    }
-                ]}
+                rules={NameValidations}
             >
                 <Input placeholder={FORM_MESSAGES.NAME} />
             </Form.Item>
@@ -77,23 +72,7 @@ const EmailForm: React.FC = () => {
                 {...formItemLayout}
                 name="domain"
                 label={FORM_LABELS.DOMAIN}
-                rules={[
-                    {
-                        required: true,
-                        message: FORM_MESSAGES.DOMAIN,
-                    },
-                    {
-                        message: FORM_MESSAGES.INVALID_DOMAIN,
-                        validator: (_, value) => {
-                            if (domainRegex.test(value)) {
-                                return Promise.resolve();
-                            } else {
-                                return Promise.reject('Error');
-                            }
-                        }
-                    }
-
-                ]}
+                rules={DomainValidations}
             >
                 <Input placeholder={FORM_MESSAGES.DOMAIN} />
             </Form.Item>
