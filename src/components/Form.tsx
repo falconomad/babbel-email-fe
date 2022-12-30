@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Form, Input, Typography, Row } from 'antd';
 import emailService from '../services/email/email.service';
-import { GENERATE, FORM_MESSAGES, FORM_LABELS, nameRegex, domainRegex, nameOnlySpacesRegex } from '../utils/contants';
+import { GENERATE, FORM_MESSAGES, FORM_LABELS } from '../utils/contants';
+import { domainRegex, nameOnlySpacesRegex, nameRegex } from '../utils/regex';
 
 const { Text } = Typography;
 
