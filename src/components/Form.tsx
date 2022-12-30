@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, Input, Typography, Row } from 'antd';
 import emailService from '../services/email/email.service';
-import { GENERATE, FORM_MESSAGES, FORM_LABELS, nameRegex, domainRegex } from '../utils/contants';
+import { GENERATE, FORM_MESSAGES, FORM_LABELS, nameRegex, domainRegex, nameOnlySpacesRegex } from '../utils/contants';
 
 const { Text } = Typography;
 
@@ -52,6 +52,16 @@ const EmailForm: React.FC = () => {
                         message: FORM_MESSAGES.INVALID_NAME,
                         validator: (_, value) => {
                             if (nameRegex.test(value)) {
+                                return Promise.resolve();
+                            } else {
+                                return Promise.reject('Error');
+                            }
+                        }
+                    },
+                    {
+                        message: FORM_MESSAGES.INVALID_NAME,
+                        validator: (_, value) => {
+                            if (!nameOnlySpacesRegex.test(value)) {
                                 return Promise.resolve();
                             } else {
                                 return Promise.reject('Error');
