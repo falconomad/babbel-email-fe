@@ -58,7 +58,7 @@ describe('AppCard', () => {
 
     fireEvent.click(generateButton)
 
-    const emailId = await screen.findByText('appu.cyriac@lendis.com')
+    const emailId = await screen.findByText('appucyriac@lendis.com')
     expect(emailId).toBeInTheDocument()
 
   })
@@ -87,7 +87,7 @@ describe('AppCard', () => {
 
     fireEvent.click(generateButton)
 
-    const emailId = await screen.findByText('appu.cyriac@lendis.com')
+    const emailId = await screen.findByText('appucyriac@lendis.com')
     expect(emailId).toBeInTheDocument()
 
   })
