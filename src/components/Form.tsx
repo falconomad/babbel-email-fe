@@ -24,7 +24,11 @@ const EmailForm: React.FC = () => {
         setIsLoading(true)
         try {
             const values = await form.validateFields();
-            const { email } = await emailService.generateEmail(values)
+            const { email } = await emailService.generateEmail({
+                //trimming spaces
+                fullname: values.fullname.trim(),
+                domain: values.domain.trim()
+            })
             setEmail(email)
         } catch (errorInfo) {
             console.log('Failed:', errorInfo);
