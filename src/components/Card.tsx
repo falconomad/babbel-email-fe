@@ -6,7 +6,7 @@ const { Meta } = Card;
 
 const AppCard: React.FC = () => (
     <Card
-        style={{ width: 500, boxShadow: '4px 3px 12px -8px' }}
+        style={{ width: 500, boxShadow: '4px 3px 12px -8px', marginBottom: '5rem' }}
         cover={
             <img
                 alt="email-image"

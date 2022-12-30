@@ -17,3 +17,5 @@ export const domainRegex =
 export const nameRegex = /^[a-zA-Z ]*$/;
 
 export const nameOnlySpacesRegex = /^\s*$/;
+
+export const AppTitle = "Email-Id Generator";

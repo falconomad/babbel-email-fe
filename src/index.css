@@ -21,3 +21,123 @@ html, body, #root, #root>div {
 code {
   font-family: "Raleway", sans-serif;
 }
+
+.headerClass {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  align-items: center;
+  box-shadow: 1px -3px 15px -2px;
+}
+
+#babbel-logo {
+  animation-name: logo-animation;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1; 
+  animation-direction: normal;
+  animation-delay: 1s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+#title-text {
+  animation-name: text-animation;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1; 
+  animation-direction: normal;
+  animation-delay: 1s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+}
+
+@keyframes logo-animation {
+
+  0% {
+    left: 340px;
+    opacity: 0.1;
+  }
+  10% {
+    left: 340px;
+    opacity: 0.2;
+  } 
+  20% {
+    left: 340px;
+    opacity: 0.3;
+  }  
+  30% {
+    left: 340px;
+    opacity: 0.4;
+  }
+  40% {
+    left: 340px;
+    opacity: 0.5;
+  }
+  50% {
+    left: 340px;
+    opacity: 0.6;
+  }  
+  60% {
+    left: 340px;
+    opacity: 0.7;
+  }
+
+  70% {
+    left: 340px;
+    opacity: 0.8;
+  }
+  80% {
+    left: 0;
+    opacity: 0.9;
+  }
+
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+
+}
+
+@keyframes text-animation {
+
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  } 
+  20% {
+    opacity: 0;
+  }  
+  30% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }  
+  60% {
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  85% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+
+}
