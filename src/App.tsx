@@ -3,8 +3,9 @@ import React from "react";
 import { Layout } from 'antd';
 import AppCard from "./components/Card";
 import { AppTitle } from "./utils/contants";
+import { ImageSource } from "./utils/urls";
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 function App() {
 
@@ -14,14 +15,14 @@ function App() {
         <img
           alt="babbel-logo"
           id="babbel-logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Babbel_logo.svg"
+          src={ImageSource.babbelLogo}
           style={{ width: '200px', position: 'relative' }}
         />
-        <span id="title-text" style={{ color: '#ff7913', opacity: 0, padding: '1rem' }}>
+        <span id="title-text">
           {AppTitle}
         </span>
       </Header>
-      <Content>
+      <Content style={{ background: 'rgb(255 0 0 / 16%)' }}>
         <AppCard />
       </Content>
     </>

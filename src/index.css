@@ -28,6 +28,7 @@ code {
   padding: 1rem;
   align-items: center;
   box-shadow: 1px -3px 15px -2px;
+  background-color: rgb(255 121 19 / 8%);
 }
 
 #babbel-logo {
@@ -51,6 +52,9 @@ code {
   animation-delay: 1s;
   animation-play-state: running;
   animation-fill-mode: forwards;
+  color: #ff7913;
+  opacity: 0;
+  padding: 1rem;
 }
 
 @keyframes logo-animation {
@@ -58,10 +62,12 @@ code {
   0% {
     left: 340px;
     opacity: 0.1;
+    background-color: white;
   }
   10% {
     left: 340px;
     opacity: 0.2;
+    background-color: ;
   } 
   20% {
     left: 340px;

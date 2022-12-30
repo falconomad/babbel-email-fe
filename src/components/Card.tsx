@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
 import EmailForm from './Form';
+import { ImageSource } from '../utils/urls';
 
 const { Meta } = Card;
 
@@ -10,7 +11,7 @@ const AppCard: React.FC = () => (
         cover={
             <img
                 alt="email-image"
-                src="https://datenschutz-generator.de/wp-content/uploads/2021/01/newsletter-tracking-logo-datenschutz-generator-dr-schwenke_2000.png"
+                src={ImageSource.emailCover}
             />
         }
     >
