@@ -1,0 +1,23 @@
+
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html, body, #root, #root>div {
+  height: 100%
+}
+
+#root>main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+
+code {
+  font-family: "Raleway", sans-serif;
+}

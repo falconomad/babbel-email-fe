@@ -9,7 +9,7 @@ Run 'babbel-email-service' first. Then run the following commands
 ---
 + npm install
 + npm start
-+ go to-> localhost:3000
++ open-> localhost:3000
 
 
 
