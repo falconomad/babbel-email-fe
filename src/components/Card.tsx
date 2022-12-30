@@ -9,7 +9,7 @@ const AppCard: React.FC = () => (
         style={{ width: 500, boxShadow: '4px 3px 12px -8px' }}
         cover={
             <img
-                alt="example"
+                alt="email-image"
                 src="https://datenschutz-generator.de/wp-content/uploads/2021/01/newsletter-tracking-logo-datenschutz-generator-dr-schwenke_2000.png"
             />
         }

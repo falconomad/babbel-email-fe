@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, Input, Typography, Row } from 'antd';
 import emailService from '../services/email/email.service';
-import { GENERATE, FORM_MESSAGES, FORM_LABELS } from '../utils/contants';
+import { GENERATE, FORM_MESSAGES, FORM_LABELS, nameRegex, domainRegex } from '../utils/contants';
 
 const { Text } = Typography;
 
@@ -42,8 +42,18 @@ const EmailForm: React.FC = () => {
                 rules={[
                     {
                         required: true,
-                        message: FORM_MESSAGES.DOMAIN,
+                        message: FORM_MESSAGES.NAME,
                     },
+                    {
+                        message: FORM_MESSAGES.INVALID_NAME,
+                        validator: (_, value) => {
+                            if (nameRegex.test(value)) {
+                                return Promise.resolve();
+                            } else {
+                                return Promise.reject('Error');
+                            }
+                        }
+                    }
                 ]}
             >
                 <Input placeholder={FORM_MESSAGES.NAME} />
@@ -57,6 +67,17 @@ const EmailForm: React.FC = () => {
                         required: true,
                         message: FORM_MESSAGES.DOMAIN,
                     },
+                    {
+                        message: FORM_MESSAGES.INVALID_DOMAIN,
+                        validator: (_, value) => {
+                            if (domainRegex.test(value)) {
+                                return Promise.resolve();
+                            } else {
+                                return Promise.reject('Error');
+                            }
+                        }
+                    }
+
                 ]}
             >
                 <Input placeholder={FORM_MESSAGES.DOMAIN} />
